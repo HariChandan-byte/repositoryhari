@@ -1,0 +1,66 @@
+++++++++++++++++Dagger 2 Notes++++++++++++++++
+
+++++++++++++++++Dependency Injection++++++++++++++++
+
+++++++++++++++++Main Activity++++++++++++++++
+ 	Battery battery = new Battery();
+
+        MemoryCard memoryCard = new MemoryCard();
+
+        ServiceProvider serviceProvider = new ServiceProvider();
+
+        SimCard simCard = new SimCard(serviceProvider);
+
+        SmartPhone smartPhone = new SmartPhone(battery, memoryCard, simCard); // Constructor Injection
+
+        smartPhone.showMessage(this);
+
+
+++++++++++++++++Battery++++++++++++++++
+public class Battery {
+
+    public Battery() {
+
+    }
+
+++++++++++++++++MemoryCard++++++++++++++++
+public class MemoryCard {
+
+    public MemoryCard() {
+
+    }
+
+++++++++++++++++SimCard++++++++++++++++
+public class SimCard {
+
+    ServiceProvider serviceProvider;
+
+    public SimCard(ServiceProvider mServiceProvider) {
+        this.serviceProvider = mServiceProvider;
+    }
+
+}
+
+++++++++++++++++ServiceProvider++++++++++++++++
+public class ServiceProvider {
+
+    public ServiceProvider() {
+
+    }
+
+++++++++++++++++SmartPhone++++++++++++++++
+Battery battery;
+    MemoryCard memoryCard;
+    SimCard simCard;
+
+    public SmartPhone(Battery battery, MemoryCard memoryCard, SimCard simCard) {
+        this.battery = battery;
+        this.memoryCard = memoryCard;
+        this.simCard = simCard;
+    }
+
+    public void showMessage(Context context) {
+
+        Toast.makeText(context, "Message shown", Toast.LENGTH_SHORT).show();
+}
+}
