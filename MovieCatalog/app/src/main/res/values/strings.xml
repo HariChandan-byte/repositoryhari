@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MovieCatalog</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_fragment_episode">Hello Episode fragment</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_fragment_description">Hello Description fragment</string>
+</resources>
